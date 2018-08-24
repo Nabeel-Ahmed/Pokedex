@@ -7,14 +7,21 @@ import Grid from '@material-ui/core/Grid';
 
 const styles = theme => ({
   root: {
-    display: 'flex',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(12, 1fr)',
     flexWrap: 'wrap',
     flexGrow: 1,
+    flex: 1,
+
     ...theme.mixins.gutters(),
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
   },
   paper: {
+    display: 'grid',
+    flexWrap: 'wrap',
+    flexGrow: 1,
+    flex: 1,
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
     color: theme.palette.text.secondary,

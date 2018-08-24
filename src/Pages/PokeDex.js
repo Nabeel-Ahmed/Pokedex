@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import axios from 'axios';
 // import PokemonCard from '../Components/pokemonCard';
 import PokeCard from './../Components/PokeCard';
+import Grid from '@material-ui/core/Grid';
+import PokeCardV2 from './../Components/PokeCardV2';
 
 class Pokedex extends Component {
     state = {
-       pokemon: []
+       pokemon: 
+       [
+
+       ]
     }
     // https://jsonplaceholder.typicode.com/posts
     // https://pokeapi.co/api/v2/pokemon-form
@@ -20,20 +25,31 @@ class Pokedex extends Component {
     render () {
          
            const pokemon = this.state.pokemon.map(pokemon => {
-                return <PokeCard 
+                return  <PokeCard 
                     id={pokemon.url.slice(34, -1)} 
                     name={pokemon.name} 
                     // img={pokemon.sprites}
                     img={" https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemon.url.slice(34, -1)  + ".png"}
                     key={pokemon.url.slice(34, -1)}
                      />;
+                <PokeCardV2 
+                    id={pokemon.url.slice(34, -1)} 
+                      name={pokemon.name} 
+                    img={" https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemon.url.slice(34, -1)  + ".png"}
+                    key={pokemon.url.slice(34, -1)}
+                    style={{flex: 1}}
+                />;
             });
         
 
         return (
-            <div>
-                    {pokemon}
-               
+            <div >
+                  <Grid container spacing={24}>
+                     <Grid item xs={6}>
+                    {pokemon} 
+                    </Grid>
+                     </Grid>
+                
             </div>
         );
     }
