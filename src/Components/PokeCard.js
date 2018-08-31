@@ -5,26 +5,24 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
+
 const styles = theme => ({
   root: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(12, 1fr)',
-    flexWrap: 'wrap',
-    flexGrow: 1,
-    flex: 1,
-
-    ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
+    // display: 'flex',
+ 
   },
   paper: {
-    display: 'grid',
+    width: 200,
+    // display: 'flex',
     flexWrap: 'wrap',
-    flexGrow: 1,
-    flex: 1,
-    padding: theme.spacing.unit * 2,
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
+    justifyContent: 'left',
+    
+    // display: 'inline-block',
+  
+  },
+  PokeHolder : {
+    // flexDirection: 'row',
+    
   },
 });
 
@@ -32,24 +30,22 @@ function PokeCard(props) {
   const { classes } = props;
 
   return (
-    <div>
+    <div className={classes.PokeHolder}>
       <Grid container spacing={16}>
        <Grid item xs={3}>
-          <Paper >
+          <Paper className={classes.paper}>
         
-        <Typography variant="headline" component="h3">
-          {props.id}
-        </Typography>
+            <Typography variant="headline" component="h3">
+              {props.id}
+            </Typography>
 
-        <img src={props.img}/>
-        
-        <Typography component="p">
-          {props.name}
-        </Typography>
+            <img src={props.img}/>
+            
+            <Typography component="p">
+              {props.name}
+            </Typography>
+
           </Paper>
-
-          
-
         </Grid>
       </Grid>
     </div>
@@ -60,5 +56,5 @@ PokeCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default PokeCard;
+export default withStyles (styles)(PokeCard);
 
