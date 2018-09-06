@@ -10,19 +10,21 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
     root: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      flexDirection: 'row',
-      justifyContent: 'center',
-      color: 'red',
-      flexGrow: 1,
+    //   display: 'flex',
+    //   flexWrap: 'wrap',
+    //   flexDirection: 'row',
+    //   justifyContent: 'center',
+    //   color: 'red',
+    //   flexGrow: 1,
     },
-    plssomeonehelpme: {
-        flexDirection: 'row',
-        // display: 'flex',
+    gridStyle:{
+        display: 'flex',
         // flexDirection: 'row',
-        // justifyContent: 'center',
-    }
+        flexWrap: 'wrap',
+        justifyContent: 'flex-end',
+        justifyContent : 'space-evenly',
+        flexGrow:1,
+    },
   });
 
 class Pokedex extends Component {
@@ -32,7 +34,7 @@ class Pokedex extends Component {
     
     
     componentDidMount() {
-        axios.get( 'https://pokeapi.co/api/v2/pokemon/?limit=12')
+        axios.get( 'https://pokeapi.co/api/v2/pokemon/?limit=151')
             .then (response => {
                 this.setState({pokemon: response.data.results});
                 console.log(this.state.pokemon,"we did it")
@@ -56,12 +58,17 @@ class Pokedex extends Component {
 
         return (
             <div className={classes.plssomeonehelpme}  >
-                  <Grid container spacing={24}>
-                     <Grid item xs={6}>
+                    {/* <Grid container spacing={24}> */}
+                     <Grid xs={12}  className={classes.gridStyle}>
                     {pokemon} 
+                    
                     </Grid>
-                     </Grid>
-                
+                    {/* <Grid container spacing={12}> */}
+                    
+
+                    {/* </Grid> */}
+                    
+                    
             </div>
         );
     }

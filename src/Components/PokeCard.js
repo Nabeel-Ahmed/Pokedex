@@ -8,21 +8,22 @@ import Grid from '@material-ui/core/Grid';
 
 const styles = theme => ({
   root: {
-    // display: 'flex',
+    // flexGrow: 1,
  
   },
   paper: {
-    width: 200,
+    // width: 150,
+    // height: 150,
+    // padding: theme.spacing.unit,
     // display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'left',
+    // flexWrap: 'wrap',
+    // justifyContent: 'left',
     
     // display: 'inline-block',
-  
-  },
-  PokeHolder : {
     // flexDirection: 'row',
-    
+    // paddingTop: theme.spacing.unit * 1,
+    // paddingBottom: theme.spacing.unit * 1,
+  
   },
 });
 
@@ -30,9 +31,8 @@ function PokeCard(props) {
   const { classes } = props;
 
   return (
-    <div className={classes.PokeHolder}>
-      <Grid container spacing={16}>
-       <Grid item xs={3}>
+    <div >
+      
           <Paper className={classes.paper}>
         
             <Typography variant="headline" component="h3">
@@ -46,8 +46,6 @@ function PokeCard(props) {
             </Typography>
 
           </Paper>
-        </Grid>
-      </Grid>
     </div>
   );
 }
